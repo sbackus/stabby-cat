@@ -1,5 +1,5 @@
 class KittiesController < ApplicationController
-  before_action :set_kitty, only: [:show, :edit, :update, :destroy]
+  before_action :set_kitty, only: [:show, :edit, :update, :destroy, :battle]
 
   # GET /kitties
   # GET /kitties.json
@@ -19,6 +19,24 @@ class KittiesController < ApplicationController
 
   # GET /kitties/1/edit
   def edit
+  end
+
+  def battle
+    @challenger = Kitty.order("RANDOM()").first
+    if(rand()>= 0.5)
+      @winner = @challenger
+      @looser = @kitty
+    else
+      @winner = @kitty
+      @looser = @challenger
+    end
+    binding.pry if @looser.weapons != []
+    @winner.weapons.concat(@looser.weapons.clone)
+    @stolen_weapons = @looser.weapons.map{|weapon| weapon.name}
+    @looser.weapons = []
+    binding.pry if @stolen_weapons == []
+    @winner.save
+    @looser.save
   end
 
   # POST /kitties

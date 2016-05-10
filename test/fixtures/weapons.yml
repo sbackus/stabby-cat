@@ -2,10 +2,8 @@
 
 one:
   name: MyString
-  type: 
-  reference: 
+  kitty:
 
 two:
   name: MyString
-  type: 
-  reference: 
+  kitty:

@@ -1,1 +1,1 @@
-json.extract! @weapon, :id, :name, :type, :reference, :created_at, :updated_at
+json.extract! @weapon, :id, :name, :kitty, :created_at, :updated_at

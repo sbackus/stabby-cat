@@ -1,0 +1,4 @@
+ <%=@winner.name%> defeated <%=@looser.name%> using <%=@winner.weapons.order("RANDOM()").first.try(:name) || "claws and teeth" %><% if @stolen_weapons.any? %> and stole <%= @stolen_weapons.to_sentence || "nothing"%><%end%>
+
+
+<%= link_to 'Back', kitties_path %>

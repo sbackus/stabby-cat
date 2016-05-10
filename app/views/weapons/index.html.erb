@@ -6,8 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Type</th>
-      <th>Reference</th>
+      <th>Kitty</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,9 +15,7 @@
     <% @weapons.each do |weapon| %>
       <tr>
         <td><%= weapon.name %></td>
-        <td><%= weapon.type %></td>
-        <td><%= weapon.reference %></td>
-        <td><%= link_to 'Show', weapon %></td>
+        <td><%= weapon.kitty.try(:name) %></td>
         <td><%= link_to 'Edit', edit_weapon_path(weapon) %></td>
         <td><%= link_to 'Destroy', weapon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -29,3 +26,6 @@
 <br>
 
 <%= link_to 'New Weapon', new_weapon_path %>
+
+<br>
+<%= link_to 'Kitties', kitties_path %>

@@ -18,7 +18,7 @@ class WeaponsControllerTest < ActionController::TestCase
 
   test "should create weapon" do
     assert_difference('Weapon.count') do
-      post :create, weapon: { name: @weapon.name, reference: @weapon.reference, type: @weapon.type }
+      post :create, weapon: { name: @weapon.name, kitty: @weapon.kitty}
     end
 
     assert_redirected_to weapon_path(assigns(:weapon))
@@ -35,7 +35,7 @@ class WeaponsControllerTest < ActionController::TestCase
   end
 
   test "should update weapon" do
-    patch :update, id: @weapon, weapon: { name: @weapon.name, reference: @weapon.reference, type: @weapon.type }
+    patch :update, id: @weapon, weapon: { name: @weapon.name, kitty: @weapon.kitty }
     assert_redirected_to weapon_path(assigns(:weapon))
   end
 

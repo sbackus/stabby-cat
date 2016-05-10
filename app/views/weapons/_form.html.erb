@@ -16,12 +16,8 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :type %><br>
-    <%= f.text_field :type %>
-  </div>
-  <div class="field">
-    <%= f.label :reference %><br>
-    <%= f.text_field :reference %>
+    <%= f.label :owner %><br>
+    <%= f.select(:kitty_id, options_from_collection_for_select(@kitties, :id, :name)) %>
   </div>
   <div class="actions">
     <%= f.submit %>

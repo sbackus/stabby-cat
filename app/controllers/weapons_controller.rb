@@ -15,10 +15,12 @@ class WeaponsController < ApplicationController
   # GET /weapons/new
   def new
     @weapon = Weapon.new
+    @kitties = Kitty.all
   end
 
   # GET /weapons/1/edit
   def edit
+    @kitties = Kitty.all
   end
 
   # POST /weapons
@@ -69,6 +71,6 @@ class WeaponsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def weapon_params
-      params.require(:weapon).permit(:name, :type, :reference)
+      params.require(:weapon).permit(:name, :kitty_id)
     end
 end

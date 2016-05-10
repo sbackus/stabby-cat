@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Image</th>
+      <th>Weapons</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,10 +15,9 @@
     <% @kitties.each do |kitty| %>
       <tr>
         <td><%= kitty.name %></td>
-        <td><%= kitty.image %></td>
-        <td><%= link_to 'Show', kitty %></td>
+        <td><%= kitty.weapons.count %></td>
         <td><%= link_to 'Edit', edit_kitty_path(kitty) %></td>
-        <td><%= link_to 'Destroy', kitty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Battle', "/kitties/#{kitty.id}/battle", data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +25,7 @@
 
 <br>
 
-<%= link_to 'New Kitty', new_kitty_path %>
+<%= link_to 'Summon kitty', new_kitty_path %>
+<br>
+<%= link_to 'Forge new weapon', new_weapon_path %>
+
